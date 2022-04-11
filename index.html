@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+  <meta charset=”UTF-8”>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chat</title>  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://www.esmonserrate.org//templates/AdminLTE/plugins/fontawesome-free/css/all.min.css">
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="https://www.esmonserrate.org//templates/AdminLTE/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="https://www.esmonserrate.org//templates/AdminLTE/dist/css/adminlte.min.css">
+
+</head>
+
+<body class="dark-mode">
+  <div class="wrapper">
+    <!-- Content Wrapper. Contains page content -->
+    <div class="container-fluid">
+      <div class="row">
+        <!-- Left col -->
+        <section class="col-lg-12 connectedSortable">
+          <div class="card direct-chat direct-chat-primary">
+            <div class="card-header">
+              <h3 class="card-title">Mensagens</h3>
+              <div class="card-tools">
+                <span title="Novas Mensagens" class="badge badge-primary" id="chatTxtNewMsg">3</span>
+                <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                <button type="button" class="btn btn-tool" data-card-widget="remove">
+                    <i class="fas fa-times"></i>
+                  </button>
+              </div>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+              <!-- Conversations are loaded here -->
+              <div class="direct-chat-messages" id="chatTxt">
+                <!-- Message. Default to the left -->
+                <div class="direct-chat-msg">
+                  <div class="direct-chat-infos clearfix">
+                    <span class="direct-chat-name float-left">Alexander Pierce -> Sarah Bullock</span>
+                    <span class="direct-chat-timestamp float-right">23 Jan 2:00 pm</span>
+                  </div>
+                  <!-- /.direct-chat-infos -->
+                  <img class="direct-chat-img" src="/templates/AdminLTE/dist/img/user1-128x128.jpg" alt="message user image">
+                  <!-- /.direct-chat-img -->
+                  <div class="direct-chat-text">
+                    Is this template really for free? That's unbelievable!
+                  </div>
+                  <!-- /.direct-chat-text -->
+                </div>
+                <!-- /.direct-chat-msg -->
+
+                <!-- Message to the right -->
+                <div class="direct-chat-msg right">
+                  <div class="direct-chat-infos clearfix">
+                    <span class="direct-chat-name float-right">Sarah Bullock</span>
+                    <span class="direct-chat-timestamp float-left">23 Jan 2:05 pm</span>
+                  </div>
+                  <!-- /.direct-chat-infos -->
+                  <img class="direct-chat-img" src="/templates/AdminLTE/dist/img/user3-128x128.jpg" alt="message user image">
+                  <!-- /.direct-chat-img -->
+                  <div class="direct-chat-text">
+                    You better believe it!
+                  </div>
+                  <!-- /.direct-chat-text -->
+                </div>
+                <!-- /.direct-chat-msg -->
+
+
+              </div>
+              <!--/.direct-chat-messages-->
+
+
+            </div>
+            <!-- /.card-body -->
+            <div class="card-footer">
+
+              <div class="form-group">
+                <label>Destinatário</label>
+                <select class="form-control select2" style="width: 100%;" id="chatTxtDest">
+                        <option value=-1>... Seleciona um destinatário</option>
+                      </select>
+              </div>
+              <div class="input-group">
+                <input type="text" id="chatTxtMsg" placeholder="Escreva a mensagem ..." class="form-control">
+                <span class="input-group-append">
+                      <button type="button" class="btn btn-primary" onClick="addMsg()">Enviar</button>
+                    </span>
+              </div>
+
+            </div>
+            <!-- /.card-footer-->
+          </div>
+        </section>
+      </div>
+      <!-- /.row (main row) -->
+    </div>
+
+
+  </div>
+  <!-- ./wrapper -->
+
+  <!-- REQUIRED SCRIPTS -->
+  <!-- jQuery -->
+  <script src="https://www.esmonserrate.org//templates/AdminLTE/plugins/jquery/jquery.min.js"></script>
+  <!-- Bootstrap -->
+  <script src="https://www.esmonserrate.org//templates/AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- overlayScrollbars -->
+  <script src="https://www.esmonserrate.org//templates/AdminLTE/dist/js/adminlte.js"></script>
+  <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+  <script src="https://www.esmonserrate.org//templates/AdminLTE/dist/js/pages/dashboard2.js"></script>
+  <!--script src="https://www.esmonserrate.org//templates/AdminLTE/js/code/gestor.js"></script-->
+  <script src="https://www.esmonserrate.org//js/code/chat.js"></script>
+
+  <script>
+    renderDestinatarios();
+    renderChat();
+    setInterval(renderChatNews, 2000);
+  </script>
+</body>
+
+</html>
