@@ -22,7 +22,7 @@ use classes\authentication\Authentication;
 class ControllerChat{
 
   public function newsMsg(){
-    
+  // Finds out how many messages have not yet been read (noRead=1).  
     $aut=new Authentication();
     if ($aut->isLoged()){
       $p['id']=$aut->getIdUser();
@@ -37,7 +37,8 @@ class ControllerChat{
   }
   
   public function read($id){
-    
+  // Mark a message with id as noRead=0 (indicate the you read a message)
+  
     $aut=new Authentication();
     if ($aut->isLoged()){
       $p['id']=$id;
@@ -52,7 +53,7 @@ class ControllerChat{
   }
   
   public function addMsg(){
-    
+  //Add a new message.
     $aut=new Authentication();
     if ($aut->isLoged()){
       $p['idS']=$aut->getIdUser();
@@ -69,7 +70,7 @@ class ControllerChat{
   }
   
   public function ListaMensagensTrocadas(){
-    
+  //Show all messages sent or received by a user. The considered user is the one who is logged into the system  
     $aut=new Authentication();
     if ($aut->isLoged()){
       $p['idS']=$aut->getIdUser();
