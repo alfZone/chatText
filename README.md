@@ -26,7 +26,7 @@
 
  # chatText
  The chatTex is a system for sending messages between registered users on a website. Is indicate for the framework in use for more details contact me.
- Documentation can be found at https://github.com/alfZone/tabledb/wiki
+ Documentation can be found at https://github.com/alfZone/chatText/wiki
 
 2 - What's new
 ==============
@@ -65,7 +65,7 @@
 7 - Documentation
 =================
 
-  Documentation can be found at https://github.com/alfZone/tabledb/wiki
+  Documentation can be found at https://github.com/alfZone/chatText/wiki
 
 8 - Author
 ==========
