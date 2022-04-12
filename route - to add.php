@@ -1,3 +1,6 @@
+//Users  
+Route::get(['set' => '/users/lista', 'as' => 'users.listOfUsers'], 'ControllerUser@listOfUsers');
+
 //chat
 Route::get('/chat/manutencao', function(){  require _CAMINHO_ADMIN. "chatGerir.php";});
 Route::post('/chat/manutencao', function(){  require _CAMINHO_ADMIN. "chatGerir.php";});
