@@ -18,7 +18,7 @@ const renderChat = async () => {
     if (l.senderFoto!=""){
       foto=l.senderFoto; 
     }else{
-      foto="/templates/AdminLTE/dist/img/user.png";
+      foto="/images/user.png";
     }
     if (l.idSender==l.idLog){
       //I'm the sender
