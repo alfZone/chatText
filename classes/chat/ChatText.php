@@ -4,9 +4,9 @@ use classes\db\LayerDB;
 
 /**
  * @author alf
- * @copyright 2020
- * @version 1.0
- * @updated 2020/04/05 
+ * @copyright 2022
+ * @version 2.0
+ * @updated 2022/04/05 
  *
  */
 
@@ -14,9 +14,9 @@ use classes\db\LayerDB;
 /*Requeriments:
     ---*/
 /*Methods:
-  
-  
+ 
  */
+//news: show last message for read.
 /*
 *Github
 * https://github.com/alfZone/graphics
@@ -37,6 +37,12 @@ class ChatText extends LayerDB{
                                                                   FROM `chatText` INNER JOIN jos_users as s on s.id=chatText.idSender  
                                                                   inner join jos_users as d on d.id=chatText.idDestination 
                                                                   WHERE `idSender`=:idS or `idDestination`=:idS 
+                                                                  ORDER BY chatText.dateTime DESC;",
+                                 "LastMessageToRead"=> "SELECT `idSender`, `idDestination`,`msg`, s.name as sender, s.foto as senderFoto, d.name as destination, d.foto as destinationFoto, 
+                                                                  chatText.dateTime, :idS as idLog, noRead , chatText.id   
+                                                                  FROM `chatText` INNER JOIN jos_users as s on s.id=chatText.idSender  
+                                                                  inner join jos_users as d on d.id=chatText.idDestination 
+                                                                  WHERE `idDestination`=:idS and noRead=1 
                                                                   ORDER BY chatText.dateTime DESC;",
                                  "addMsg"=>"INSERT INTO `chatText`(`idSender`, `idDestination`, `msg`) VALUES (:idS,:idD,:msg)",
                                  "read" => "UPDATE `chatText` SET `noRead`=0 WHERE `id`=:id",
