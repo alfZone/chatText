@@ -10,8 +10,8 @@ use classes\authentication\Authentication;
 
 /**
  * @autores alf
- * @copyright 2020
- * @ver 1.0
+ * @copyright 2022
+ * @ver 2.0
  */
 
 
@@ -80,16 +80,28 @@ class ControllerChat{
       echo $art->webService();
     }else{
       
-     echo header('Location: /404.shtml');; 
+     echo header('Location: /404.shtml');
     }
     
   }
   
+  
+  public function LastMessageToRead(){
+  //Show the last message to read. The considered user is the one who is logged into the system  
+    $aut=new Authentication();
+    if ($aut->isLoged()){
+      $p['idS']=$aut->getIdUser();
+      //echo $aut->getIdUser();
+      $art=new ChatText("LastMessageToRead",$p);
+      
+      echo $art->webService();
+    }else{
+      
+     echo header('Location: /404.shtml');; 
+    }
+    
+  }
  
 }
 
-
-//$cl=new ControllerMember();
-//$cl->index();message
-//echo "ole";
 ?>
