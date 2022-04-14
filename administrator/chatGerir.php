@@ -42,8 +42,8 @@ $tabela->preparaTabela("chatText");
 $tabela->setAtivaCampos("id, idSender, idDestination,msg", 'ver');
 
 //$tabela->setCampoPass("password",0, "md5");
-$tabela->setAtivaCampos("idSender, idDestination,msg", 'novo');
-$tabela->setAtivaCampos("idSender, idDestination,msg", 'editar');
+$tabela->setAtivaCampos("idSender, idDestination,msg, noRead", 'novo');
+$tabela->setAtivaCampos("idSender, idDestination,msg, noRead", 'editar');
 $tabela->setCampoLista("idSender",1,"SELECT `id`,`name` FROM `jos_users` order by `name`");
 $tabela->setCampoLista("idDestination",1,"SELECT `id`,`name` FROM `jos_users` order by `name`");
 
