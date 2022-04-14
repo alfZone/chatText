@@ -35,34 +35,32 @@ $userId=$aut->getIdUser();
 
   //"SELECT id, `title` FROM `jos_sections` ORDER BY `title`";
 
-$tabela= new TableBD();
-$tabela->setTemplate(_CAMINHO_TEMPLATE_ADMIN . "tables.html");
-$tabela->setTitulo("Todas Mensagens");
-$tabela->preparaTabela("chatText");
-$tabela->setAtivaCampos("id, idSender, idDestination,msg", 'ver');
+$table= new TableBD();
+$table->setTemplate(_CAMINHO_TEMPLATE_ADMIN . "tables.html");
+$table->setTitle("Todas Mensagens");
+$table->preparaTabela("chatText");
+$table->setFieldsAtive("id, idSender, idDestination,msg", 'ver');
 
-//$tabela->setCampoPass("password",0, "md5");
-$tabela->setAtivaCampos("idSender, idDestination,msg, noRead", 'novo');
-$tabela->setAtivaCampos("idSender, idDestination,msg, noRead", 'editar');
-$tabela->setCampoLista("idSender",1,"SELECT `id`,`name` FROM `jos_users` order by `name`");
-$tabela->setCampoLista("idDestination",1,"SELECT `id`,`name` FROM `jos_users` order by `name`");
+//$table->setFieldPass("password",0, "md5");
+$table->setFieldsAtive("idSender, idDestination,msg, noRead", 'novo');
+$table->setFieldsAtive("idSender, idDestination,msg, noRead", 'editar');
+$table->setFieldList("idSender",1,"SELECT `id`,`name` FROM `jos_users` order by `name`");
+$table->setFieldList("idDestination",1,"SELECT `id`,`name` FROM `jos_users` order by `name`");
+$table->setFieldList("noRead",2,"0=>Already read, 1=>For Read");
 
-//$tabela->setCampoLista("block",2,"1=>inativo,0=>ativo");
-//$tabela->setPaginaVer("/public/artigo/ver/");
-$tabela->setLabel('idSender',"Remetente");
-$tabela->setLabel('idDestination',"Destinatário");
-$tabela->setLabel('msg',"Mensagem");
+//$table->setLinkPage("/public/artigo/ver/");
+$table->setLabel('idSender',"Remetente");
+$table->setLabel('idDestination',"Destinatário");
+$table->setLabel('msg',"Mensagem");
 
-//$tabela->setDefaultValue('created_by',$userId);
-//$tabela->setDefaultValue('ordering',"1");
-//$tabela->setDefaultValue("created_by", "$userId");
-//$tabela->setJSAction('sectionid','onClick="FilterItems(this.value);"');
-//$tabela->setCriterio('publish_up>"2019-01-01"');
-//$tabela->preparaSQLparaAccao('novo');
-//$tabela->fazlista();
-//$tabela->includes(); 
-//$tabela->formulario();
-$tabela->fazHTML();
+//$table->setDefaultValue('created_by',$userId);
+//$table->setDefaultValue('ordering',"1");
+//$table->setDefaultValue("created_by", "$userId");
+//$table->setJSAction('sectionid','onClick="FilterItems(this.value);"');
+//$table->setCriterio('publish_up>"2019-01-01"');
+//$table->preparaSQLparaAccao('novo');
+
+$table->fazHTML();
 
 //}
 ?>
