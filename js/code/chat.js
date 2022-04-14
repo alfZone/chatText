@@ -2,6 +2,44 @@
 
 const _SERVIDORch=  window.location.protocol + "//" + window.location.host + "/";
 
+const renderLastMessageToRead = async () => {
+
+  //console.log("ver");
+  const response = await fetch(_SERVIDORch +`public/chat/lastMessageToRead`)
+  const lv = await response.json()
+  //console.log(lv) 
+   let strHtml = `
+                `
+   let foto
+  if(lv[0].numElements!=0){
+    for (const l of lv) {
+      if (l.senderFoto!=""){
+        foto=l.senderFoto; 
+      }else{
+        foto="/templates/AdminLTE/dist/img/user.png";
+      }
+      //I'm the destination
+      //txt=`<small class="badge badge-info" onClick="read(${l.id})"><i class="far fa-clock"></i>Novo</small>`;
+      strHtml += `
+                  <div class="media">
+                    <img src="${foto}" alt="${l.sender}" class="img-size-50 mr-3 img-circle">
+                    <div class="media-body">
+                      <h3 class="dropdown-item-title">
+                        ${l.sender}
+                        <span class="float-right text-sm text-danger"><i class="fas fa-star" onClick="read(${l.id})"></i>Ler</span>
+                      </h3>
+                      <p class="text-sm">${l.msg}</p>
+                      <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i>${l.dateTime}</p>
+                    </div>
+                  </div>
+                  `  
+    }
+  }
+  
+  document.getElementById("chatLastTxt").innerHTML = strHtml
+ 
+}
+
 const renderChat = async () => {
 
   //console.log("ver");
