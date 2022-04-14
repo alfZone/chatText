@@ -8,3 +8,4 @@ Route::get(['set' => '/chat/listaMensagens', 'as' => 'users.ListaMensagensTrocad
 Route::post(['set' => '/chat/addMsg', 'as' => 'users.addMsg'], 'ControllerChat@addMsg');
 Route::get(['set' => '/chat/read/{id}', 'as' => 'users.read'], 'ControllerChat@read');
 Route::get(['set' => '/chat/news', 'as' => 'users.newsMsg'], 'ControllerChat@newsMsg');
+Route::get(['set' => '/chat/lastMessageToRead', 'as' => 'users.LastMessageToRead'], 'ControllerChat@LastMessageToRead');
