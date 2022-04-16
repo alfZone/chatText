@@ -1,6 +1,7 @@
 <?php
 namespace app;
 @session_start();
+//use classes\Database;
 use classes\authentication\Authentication;
 use classes\authentication\Users;
 
@@ -9,7 +10,7 @@ use classes\authentication\Users;
 /**
  * @autores alf
  * @copyright 2020
- * @ver 1.0
+ * @ver 1.5
  */
 
 
@@ -20,17 +21,41 @@ use classes\authentication\Users;
 class ControllerUser{
 
   public function listOfUsers(){
+    $pedidos=new Users("listOfUsers"); 
+    echo $pedidos->webService();
+    }
+  
+ public function contarUsers(){
 
-   $pedidos=new Users("listOfUsers"); 
+   $pedidos=new Users("numberUserAtivos"); 
 	 echo $pedidos->webService();
 
 	}
   
- //.......
+ public function contarUsersPorTipo(){
+
+   $pedidos=new Users("numberUserAtivosPorTipo"); 
+	 echo $pedidos->webService();
+
+	}
+  
+  public function contarAdmin(){
+
+   $pedidos=new Users("numberAdmin"); 
+	 echo $pedidos->webService();
+
+	}
   
   public function getAutentication(){
     $aut=new Authentication();
     $aut->getAuthentication();
+    //uncomment the next 5 lines for update google photo on database
+    if ($aut->isLoged()){
+      $p['id']=$aut->getIdUser();
+      $p['photo']=$aut->getPhoto();
+      $update=new Users("photoUpdate",$p);
+    }
+    
     echo $aut->webService();
  	}
   
@@ -42,8 +67,4 @@ class ControllerUser{
   
 }
 
-
-//$cl=new ControllerMember();
-//$cl->index();message
-//echo "ole";
 ?>
